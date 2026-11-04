@@ -16,6 +16,12 @@ cask "pixy" do
 
   app "Pixy.app"
 
+  caveats <<~EOS
+    Pixy is ad-hoc signed and not notarized, so macOS blocks the first launch.
+    Allow it once in System Settings → Privacy & Security → "Open Anyway",
+    or run: xattr -dr com.apple.quarantine "#{appdir}/Pixy.app"
+  EOS
+
   zap trash: [
     "~/Library/Application Support/FlowVision",
     "~/Library/Caches/com.natinli.Pixy",

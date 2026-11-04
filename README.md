@@ -38,7 +38,7 @@ than `homebrew/cask`, which requires every cask to pass Homebrew's Gatekeeper ch
 `brew audit` on this cask fails on exactly that, by design.
 
 Homebrew *does* apply `com.apple.quarantine` to what it downloads (`--no-quarantine` no longer
-exists as of Homebrew 5), so the **first launch after each install or upgrade still needs one
+exists in current Homebrew), so the **first launch after each install or upgrade still needs one
 manual approval**:
 
 - System Settings → Privacy & Security → scroll down → "Open Anyway", or
