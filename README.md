@@ -33,21 +33,23 @@ brew uninstall --cask --zap pixy     # also remove preferences, caches and the s
 
 ## Notes
 
-Pixy is not signed with a Developer ID and not notarized. This is why the cask lives in a
-personal tap instead of `homebrew/cask`, which requires casks to pass Gatekeeper assessment.
+Pixy is ad-hoc signed, not notarized. That is why this cask lives in a personal tap rather
+than `homebrew/cask`, which requires every cask to pass Homebrew's Gatekeeper check —
+`brew audit` on this cask fails on exactly that, by design.
 
-Installing through Homebrew means the download is fetched with `curl`, which does **not** set
-the `com.apple.quarantine` attribute — so the app launches normally without the "仍要打开" /
-"Open Anyway" detour that a browser download needs. If macOS ever does block it, either open
-System Settings → Privacy & Security and allow it, or run:
+Homebrew *does* apply `com.apple.quarantine` to what it downloads (`--no-quarantine` no longer
+exists as of Homebrew 5), so the **first launch after each install or upgrade still needs one
+manual approval**:
 
-```sh
-xattr -dr com.apple.quarantine /Applications/Pixy.app
-```
+- System Settings → Privacy & Security → scroll down → "Open Anyway", or
+- `xattr -dr com.apple.quarantine /Applications/Pixy.app`
 
-The alternative is to
-[build from source](https://github.com/natinli/Pixy#building-from-source), which avoids the
-issue entirely.
+What the tap buys you is everything around that: one command to install and upgrade instead of
+downloading, mounting and dragging a DMG each time, and `brew uninstall --zap` to remove the
+app together with its preferences, caches and search index.
+
+It also matters if you already use FlowVision: `brew install flowvision` installs the upstream
+app, not this fork.
 
 ## Updating this tap
 

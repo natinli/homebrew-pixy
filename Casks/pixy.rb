@@ -2,8 +2,7 @@ cask "pixy" do
   version "0.0.1"
   sha256 "5bdfb42fb8fa87f92765fd4062aba298baae2dccdb3a9aceb9c8f759c03d39f8"
 
-  url "https://github.com/natinli/Pixy/releases/download/v#{version}/Pixy-#{version}-universal-unsigned.zip",
-      verified: "github.com/natinli/Pixy/"
+  url "https://github.com/natinli/Pixy/releases/download/v#{version}/Pixy-#{version}-universal-unsigned.zip"
   name "Pixy"
   desc "Finder-native image and video browser for macOS"
   homepage "https://github.com/natinli/Pixy"
@@ -13,7 +12,7 @@ cask "pixy" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "Pixy.app"
 
