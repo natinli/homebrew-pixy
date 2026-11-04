@@ -4,7 +4,7 @@ cask "pixy" do
 
   url "https://github.com/natinli/Pixy/releases/download/v#{version}/Pixy-#{version}-universal-unsigned.zip"
   name "Pixy"
-  desc "Finder-native image and video browser for macOS"
+  desc "Finder-native image and video browser"
   homepage "https://github.com/natinli/Pixy"
 
   livecheck do
@@ -12,7 +12,7 @@ cask "pixy" do
     strategy :github_latest
   end
 
-  depends_on macos: :big_sur
+  depends_on :macos
 
   app "Pixy.app"
 
