@@ -17,7 +17,7 @@ cask "pixy" do
   app "Pixy.app"
 
   zap trash: [
-    "~/Library/Application Support/FlowVision",
+    "~/Library/Application Support/Pixy",
     "~/Library/Caches/com.natinli.Pixy",
     "~/Library/Preferences/com.natinli.Pixy.plist",
     "~/Library/Saved Application State/com.natinli.Pixy.savedState",
